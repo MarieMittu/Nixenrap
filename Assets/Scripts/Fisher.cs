@@ -5,7 +5,7 @@ using UnityEngine;
 public class Fisher : MonoBehaviour
 {
 
-    public static float lureAmount;
+    public float lureAmount;
     float secondTimer = 0f;
     bool isLuring = false;
 

@@ -5,6 +5,8 @@ using UnityEngine;
 public class Lurebar : MonoBehaviour
 {
 
+    public Fisher fisher;
+
     Vector3 localScale;
 
     // Start is called before the first frame update
@@ -16,7 +18,14 @@ public class Lurebar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        localScale.x = Fisher.lureAmount;
-        transform.localScale = localScale;
+        if (fisher != null)
+        {
+            localScale.x = fisher.lureAmount;
+            transform.localScale = localScale;
+        }
+        
+        
+
+
     }
 }
