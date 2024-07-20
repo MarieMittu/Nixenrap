@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - lure
   layers:
   - Default
   - TransparentFX
@@ -40,4 +41,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BG
+    uniqueID: 3350452297
+    locked: 0
+  - name: Player
+    uniqueID: 2863916031
+    locked: 0
+  - name: UI
+    uniqueID: 1802836715
     locked: 0

@@ -12,6 +12,7 @@ public class AudioSpectrum : MonoBehaviour
     void Start()
     {
         m_audioSpectrum = new float[128];
+        Debug.Log("start playing");
     }
 
     // Update is called once per frame

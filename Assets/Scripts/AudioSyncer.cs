@@ -90,7 +90,11 @@ public class AudioSyncer : MonoBehaviour
         {
 			numPressed += 1;
 			Debug.Log("beat return " + numPressed);
-		}
+		} else if (!beatCatch && Input.GetKeyDown(KeyCode.Return))
+        {
+			numPressed -= 1;
+			Debug.Log("boooooo!" + numPressed);
+        }
 
 	}
 
