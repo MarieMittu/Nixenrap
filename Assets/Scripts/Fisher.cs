@@ -8,6 +8,7 @@ public class Fisher : MonoBehaviour
     public float lureAmount;
     float secondTimer = 0f;
     bool isLuring = false;
+    float decreaseTimer = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,14 @@ public class Fisher : MonoBehaviour
         Debug.Log("LUREAMOUNT" + lureAmount);
     }
 
+    public void DecreaseLure()
+    {
+        lureAmount -= 0.1f;
+        if (lureAmount <= 0)
+            {
+            lureAmount = 0;
+        }
+    }
     // Update is called once per frame
     void Update()
     {
@@ -36,6 +45,14 @@ public class Fisher : MonoBehaviour
         } else
         {
             secondTimer = 0f;
+            decreaseTimer += Time.deltaTime;
+            if (decreaseTimer >= 1f)
+            {
+                DecreaseLure();
+                decreaseTimer -= 1f;
+            }
+           
+
         }
        
 
@@ -76,6 +93,7 @@ public class Fisher : MonoBehaviour
         if (collision.gameObject.CompareTag("lure"))
         {
             isLuring = true;
+            decreaseTimer = 0f;
 
         } 
     }
