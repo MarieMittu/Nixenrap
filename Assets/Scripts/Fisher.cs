@@ -84,6 +84,7 @@ public class Fisher : MonoBehaviour
 
         transform.position = endPos;
         yield return new WaitForSeconds(0.5f);
+        DinnerManager.instance.AddDinner();
         Destroy(gameObject);
 
     }
