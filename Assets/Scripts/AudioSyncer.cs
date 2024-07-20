@@ -9,15 +9,44 @@ using UnityEngine;
 public class AudioSyncer : MonoBehaviour
 {
 
+	public float bias;
+	public float timeStep;
+	public float timeToBeat;
+	public float restSmoothTime;
+
+	private float m_previousAudioValue;
+	private float m_audioValue;
+	private float m_timer;
+
+	protected bool m_isBeat;
+
+	int numBeat = 0;
+	int numPressed = 0;
+	private bool beatCatch = false;
+
 	/// <summary>
 	/// Inherit this to cause some behavior on each beat
 	/// </summary>
 	public virtual void OnBeat()
 	{
-		Debug.Log("beat");
+		numBeat += 1;
+		Debug.Log("beat" + numBeat);
+	
+
+			beatCatch = true;
+		StartCoroutine(CatchBeat());
+
+
 		m_timer = 0;
 		m_isBeat = true;
 	}
+
+	private IEnumerator CatchBeat()
+    {
+		beatCatch = true;
+		yield return new WaitForSeconds(0.1f);
+		beatCatch = false;
+    }
 
 	/// <summary>
 	/// Inherit this to do whatever you want in Unity's update function
@@ -49,21 +78,20 @@ public class AudioSyncer : MonoBehaviour
 		}
 
 		m_timer += Time.deltaTime;
+
+		
 	}
 
 	private void Update()
 	{
 		OnUpdate();
+	
+		if(beatCatch && Input.GetKeyDown(KeyCode.Return))
+        {
+			numPressed += 1;
+			Debug.Log("beat return " + numPressed);
+		}
+
 	}
 
-	public float bias;
-	public float timeStep;
-	public float timeToBeat;
-	public float restSmoothTime;
-
-	private float m_previousAudioValue;
-	private float m_audioValue;
-	private float m_timer;
-
-	protected bool m_isBeat;
 }
