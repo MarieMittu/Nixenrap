@@ -5,17 +5,21 @@ using UnityEngine;
 public class BgManager : MonoBehaviour
 {
 
-    public int dinnerNum = DinnerManager.instance.dinner;
+    //public int dinnerNum = DinnerManager.instance.dinner;
     public GameObject dinnerTime, diet, starving;
 
     // Start is called before the first frame update
     void Start()
     {
+
+        int dinnerNum = PlayerPrefs.GetInt("newDinnerNum", 0);
+
+        Debug.Log("DinnerNum: " + dinnerNum);
         if (dinnerNum == 0)
         {
             starving.SetActive(true);
-            diet.SetActive(true);
-            dinnerTime.SetActive(true);
+            diet.SetActive(false);
+            dinnerTime.SetActive(false);
 
         } else if (dinnerNum == 5)
         {

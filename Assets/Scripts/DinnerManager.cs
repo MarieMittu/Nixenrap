@@ -11,6 +11,13 @@ public class DinnerManager : MonoBehaviour
     public Text dinnerText;
 
     public int dinner = 0;
+    public int newDinner = 0;
+
+    public GameObject sunTimer;
+
+    public float morningDuration = 90f;
+    float secondTimer = 0f;
+
 
     private void Awake()
     {
@@ -20,21 +27,47 @@ public class DinnerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        dinner = 0;
+        newDinner = PlayerPrefs.GetInt("newDinnerNum", dinner);
         dinnerText.text = dinner.ToString();
+        
     }
+
+    
+
+
 
     public void AddDinner()
     {
         dinner++;
         dinnerText.text = dinner.ToString();
+        PlayerPrefs.SetInt("newDinnerNum", dinner);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(dinner == 5)
+        secondTimer = secondTimer + Time.deltaTime;
+        if (secondTimer >= 1f)
         {
-            FindObjectOfType<GameManager>().EndGame();
+            morningDuration--;
+            secondTimer = secondTimer - 1f;
         }
+           
+        
+
+        if(dinner == 5 || morningDuration <= 0)
+        {
+            
+            Invoke("FinishGame", 1.0f);
+        }
+    }
+
+    void FinishGame()
+    {
+        PlayerPrefs.SetInt("newDinnerNum", dinner);
+        PlayerPrefs.Save();
+        Debug.Log("dinnergmeend" + dinner);
+        FindObjectOfType<GameManager>().EndGame();
     }
 }
