@@ -13,9 +13,10 @@ public class DinnerManager : MonoBehaviour
     public int dinner = 0;
     public int newDinner = 0;
 
-    public GameObject sunTimer;
+    public Image sunTimer;
 
     public float morningDuration = 90f;
+    public float startMorningDuration;
     float secondTimer = 0f;
 
 
@@ -30,6 +31,12 @@ public class DinnerManager : MonoBehaviour
         dinner = 0;
         newDinner = PlayerPrefs.GetInt("newDinnerNum", dinner);
         dinnerText.text = dinner.ToString() + "/5";
+        startMorningDuration = morningDuration;
+
+        if (sunTimer != null)
+        {
+            sunTimer.fillAmount = 1f;
+        }
         
     }
 
@@ -52,6 +59,11 @@ public class DinnerManager : MonoBehaviour
         {
             morningDuration--;
             secondTimer = secondTimer - 1f;
+
+            if (sunTimer != null)
+            {
+                sunTimer.fillAmount = morningDuration / startMorningDuration;
+            }
         }
            
         
