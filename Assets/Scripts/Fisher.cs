@@ -11,6 +11,7 @@ public class Fisher : MonoBehaviour
     public bool isLuring = false;
     float decreaseTimer = 0f;
     private AudioSyncer audioSyncer;
+    private Animator animator;
 
 
     // Start is called before the first frame update
@@ -18,6 +19,11 @@ public class Fisher : MonoBehaviour
     {
         lureAmount = 0;
         audioSyncer = FindObjectOfType<AudioSyncer>();
+    }
+
+    void Awake()
+    {
+        animator = GetComponent<Animator>();
     }
 
     public void AddLure(float plus)
@@ -42,17 +48,17 @@ public class Fisher : MonoBehaviour
 
             if (audioSyncer.beatCatch && Input.GetKeyDown(KeyCode.Return))
             {
-                AddLure(0.3f);
+                AddLure(0.6f);
             } else if (!audioSyncer.beatCatch && Input.GetKeyDown(KeyCode.Return))
             {
-                DecreaseLure(0.3f);
+                DecreaseLure(0.6f);
             } else
             {
                 Debug.Log("is being lured" + lureAmount);
                 secondTimer = secondTimer + Time.deltaTime;
                 if (secondTimer >= 1f)
                 {
-                    AddLure(0.1f);
+                    AddLure(0.2f);
                     secondTimer--;
                 }
             }
@@ -63,7 +69,7 @@ public class Fisher : MonoBehaviour
             decreaseTimer += Time.deltaTime;
             if (decreaseTimer >= 1f)
             {
-                DecreaseLure(0.1f);
+                DecreaseLure(0.6f);
                 decreaseTimer -= 1f;
             }
            
@@ -75,9 +81,9 @@ public class Fisher : MonoBehaviour
             lureAmount = 0;
         }
 
-        if (lureAmount >= 1)
+        if (lureAmount >= 2)
         {
-            lureAmount = 1;
+            lureAmount = 2;
 
             StartCoroutine(JumpKillFisher());
            
@@ -115,6 +121,7 @@ public class Fisher : MonoBehaviour
         {
             isLuring = true;
             decreaseTimer = 0f;
+            animator.Play("Lured");
 
         } 
     }
@@ -124,6 +131,7 @@ public class Fisher : MonoBehaviour
         if (collision.gameObject.CompareTag("lure"))
         {
             isLuring = false;
+            animator.Play("Idle");
 
         }
 
