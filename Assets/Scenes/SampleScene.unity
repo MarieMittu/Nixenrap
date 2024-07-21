@@ -1114,6 +1114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dinnerText: {fileID: 751666945}
   dinner: 0
+  newDinner: 0
   sunTimer: {fileID: 932194836}
   morningDuration: 60
 --- !u!1 &1258505617
@@ -1902,3 +1903,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fc1e011b92184b7cb25d0d7dd7b14ce, type: 3}
+--- !u!1 &3552211233245419098 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3552211233901233877, guid: 8fc1e011b92184b7cb25d0d7dd7b14ce, type: 3}
+  m_PrefabInstance: {fileID: 3552211233245419097}
+  m_PrefabAsset: {fileID: 0}
+--- !u!247 &3552211233245419099
+ConstantForce2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3552211233245419098}
+  m_Enabled: 1
+  m_Force: {x: 20, y: 0}
+  m_RelativeForce: {x: 0, y: 0}
+  m_Torque: 0
