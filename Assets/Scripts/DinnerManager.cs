@@ -29,7 +29,7 @@ public class DinnerManager : MonoBehaviour
     {
         dinner = 0;
         newDinner = PlayerPrefs.GetInt("newDinnerNum", dinner);
-        dinnerText.text = dinner.ToString();
+        dinnerText.text = dinner.ToString() + "/5";
         
     }
 
@@ -40,7 +40,7 @@ public class DinnerManager : MonoBehaviour
     public void AddDinner()
     {
         dinner++;
-        dinnerText.text = dinner.ToString();
+        dinnerText.text = dinner.ToString() + "/5";
         PlayerPrefs.SetInt("newDinnerNum", dinner);
     }
 
