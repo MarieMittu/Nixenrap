@@ -69,7 +69,7 @@ public class Fisher : MonoBehaviour
             decreaseTimer += Time.deltaTime;
             if (decreaseTimer >= 1f)
             {
-                DecreaseLure(0.6f);
+                DecreaseLure(0.2f);
                 decreaseTimer -= 1f;
             }
            
@@ -81,9 +81,9 @@ public class Fisher : MonoBehaviour
             lureAmount = 0;
         }
 
-        if (lureAmount >= 2)
+        if (lureAmount >= 2.7f)
         {
-            lureAmount = 2;
+            lureAmount = 2.7f;
 
             StartCoroutine(JumpKillFisher());
            
