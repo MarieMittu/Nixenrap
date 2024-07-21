@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 819698301998573147}
   m_Layer: 0
   m_Name: Fisher
-  m_TagString: Untagged
+  m_TagString: fisher
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,6 +137,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4259270b626984e248cbce4a768afd54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSyncer: {fileID: 0}
+  lureAmount: 0
+  isLuring: 0
 --- !u!1 &819698302943285019
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,3 +237,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30dc399d7efbd40dba0585d1e02e2159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fisher: {fileID: 819698301998573147}

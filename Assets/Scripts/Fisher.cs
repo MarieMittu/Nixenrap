@@ -5,26 +5,30 @@ using UnityEngine;
 public class Fisher : MonoBehaviour
 {
 
+
     public float lureAmount;
     float secondTimer = 0f;
-    bool isLuring = false;
+    public bool isLuring = false;
     float decreaseTimer = 0f;
+    private AudioSyncer audioSyncer;
+
 
     // Start is called before the first frame update
     void Start()
     {
         lureAmount = 0;
+        audioSyncer = FindObjectOfType<AudioSyncer>();
     }
 
-    public void AddLure()
+    public void AddLure(float plus)
     {
-        lureAmount += 0.1f;
+        lureAmount += plus;
         Debug.Log("LUREAMOUNT" + lureAmount);
     }
 
-    public void DecreaseLure()
+    public void DecreaseLure(float minus)
     {
-        lureAmount -= 0.1f;
+        lureAmount -= minus;
         if (lureAmount <= 0)
             {
             lureAmount = 0;
@@ -35,26 +39,41 @@ public class Fisher : MonoBehaviour
     {
         if (isLuring)
         {
-            Debug.Log("is being lured" + lureAmount);
-            secondTimer = secondTimer + Time.deltaTime;
-            if (secondTimer >= 1f)
+
+            if (audioSyncer.beatCatch && Input.GetKeyDown(KeyCode.Return))
             {
-                AddLure();
-                secondTimer--;
+                AddLure(0.3f);
+            } else if (!audioSyncer.beatCatch && Input.GetKeyDown(KeyCode.Return))
+            {
+                DecreaseLure(0.3f);
+            } else
+            {
+                Debug.Log("is being lured" + lureAmount);
+                secondTimer = secondTimer + Time.deltaTime;
+                if (secondTimer >= 1f)
+                {
+                    AddLure(0.1f);
+                    secondTimer--;
+                }
             }
+            
         } else
         {
             secondTimer = 0f;
             decreaseTimer += Time.deltaTime;
             if (decreaseTimer >= 1f)
             {
-                DecreaseLure();
+                DecreaseLure(0.1f);
                 decreaseTimer -= 1f;
             }
            
 
         }
-       
+
+        if (lureAmount <= 0)
+        {
+            lureAmount = 0;
+        }
 
         if (lureAmount >= 1)
         {
@@ -87,6 +106,7 @@ public class Fisher : MonoBehaviour
         DinnerManager.instance.AddDinner();
         Destroy(gameObject);
 
+        
     }
     
     private void OnTriggerStay2D(Collider2D collision)
