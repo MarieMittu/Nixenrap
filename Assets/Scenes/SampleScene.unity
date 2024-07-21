@@ -344,7 +344,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 30.458}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 3, y: -130}
+  m_AnchoredPosition: {x: -190, y: -130}
   m_SizeDelta: {x: 351.37, y: 351.37}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &79122486
@@ -397,7 +397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d4bd879b85eb48778974b82131d24b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bias: 1
+  bias: 5
   timeStep: 0.15
   timeToBeat: 0.05
   restSmoothTime: 2
@@ -440,8 +440,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -154, y: -51.089966}
-  m_SizeDelta: {x: 100, y: 50.190002}
+  m_AnchoredPosition: {x: -244.09998, y: -87.599976}
+  m_SizeDelta: {x: 146.65, y: 73.61}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &169592113
 MonoBehaviour:
@@ -456,14 +456,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8018868, g: 0.78297436, b: 0.78297436, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: b04588c5dd82e4bb2829403ca7aebaf5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1240,7 +1240,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 95.78992, y: -97.79004}
+  m_AnchoredPosition: {x: 95.78992, y: -129.70007}
   m_SizeDelta: {x: 139.58, y: 139.58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &723435942
@@ -1316,7 +1316,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -54.68004}
+  m_AnchoredPosition: {x: 0, y: -59.5}
   m_SizeDelta: {x: 100, y: 51.15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &751666945
@@ -1646,7 +1646,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -53, y: -52}
+  m_AnchoredPosition: {x: -85, y: -83.910034}
   m_SizeDelta: {x: 62.580017, y: 65.41998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1094422480
@@ -1923,7 +1923,7 @@ MonoBehaviour:
   dinner: 0
   newDinner: 0
   sunTimer: {fileID: 1486449302}
-  morningDuration: 60
+  morningDuration: 100
   startMorningDuration: 0
 --- !u!114 &1195846544
 MonoBehaviour:
@@ -3841,6 +3841,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 549064153, guid: 8fc1e011b92184b7cb25d0d7dd7b14ce, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 715d899b4866245358444f97a1774cde, type: 3}
     - target: {fileID: 795545746, guid: 8fc1e011b92184b7cb25d0d7dd7b14ce, type: 3}
       propertyPath: speed
       value: 2
